@@ -1,8 +1,28 @@
 footer {
-    position: absolute;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     color: white;
     text-align: center;
     padding: 30px;
+}
+
+.rounded-input {
+    border-radius: 50px 0px 0px 50px;
+}
+
+.rounded-button {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.bg-custom-dark {
+    background-color: #1a1a1a;
+}
+
+.bg-divider {
+    background-color: rgba($color: #fff, $alpha: .3);
+}
+
+.copyright-style {
+    font-size: smaller;
+    color: rgba($color: #fff, $alpha: .7);
 }
