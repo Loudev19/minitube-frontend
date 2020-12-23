@@ -1,8 +1,17 @@
-.preview:hover {
-    src: url(https://compote.slate.com/images/697b023b-64a5-49a0-8059-27b963453fb1.gif);
-}
-
 .preview {
     width: 100%;
     height: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    height: 70vh;
+}
+
+.box {
+    min-height: 100vh;
 }
