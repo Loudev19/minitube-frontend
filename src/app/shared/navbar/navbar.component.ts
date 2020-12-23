@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private _router : Router) { }
+  words: string;
+  
+  constructor( 
+    private _router : Router) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +20,10 @@ export class NavbarComponent implements OnInit {
     this._router.navigate(["/upload"]);
   }
 
-
+  getCoincidences() {
+    const queryParams: any = {};
+    queryParams.words = JSON.stringify(this.words);
+    const navigationExtras: NavigationExtras = {queryParams}
+    this._router.navigate(["/video-response"], navigationExtras);
+  }
 }

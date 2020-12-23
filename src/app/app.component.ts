@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { VideoResponseService } from "./services/video-response.service";
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,4 @@ import { VideoResponseService } from "./services/video-response.service";
 })
 export class AppComponent {
   title = 'minitube';
-
-  words: string;
-
-  constructor(private _videoResponseService: VideoResponseService) {}
-
-  getCoincidences() {
-    this._videoResponseService.searchCoincidences(this.words)
-  }
 }
