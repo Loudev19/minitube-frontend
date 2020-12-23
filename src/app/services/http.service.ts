@@ -13,7 +13,7 @@ interface Video{
 export class HttpService {
   private url: string = environment.BASE_URI;
 
-  constructor(private readonly _http: HttpClient) {}
+  constructor(private readonly _http: HttpClient ) {}
 
   public setThumbnail( video : Video ){
     let httpOptions = { 
@@ -21,7 +21,10 @@ export class HttpService {
         'Content-Type': 'application/json'
       })
     }
-    return this._http.post(this.url+"/generateThumbail",video,httpOptions);
+    return this._http.post(this.url+"/generateThumbail",video,httpOptions).subscribe(
+      val => console.log(val),
+      error => console.log(error)
+    );
   }
 
   public createVideo(){
@@ -31,7 +34,10 @@ export class HttpService {
         'X-Amz-ACL' : 'public-read'
       })
     }
-    return this._http.put<any>(this.url+'/createVideo', httpOptions);
+    return this._http.put<any>(this.url+'/createVideo', httpOptions).subscribe(
+      val => console.log(val),
+      error => console.log(error)
+    );
   }
   
 }
