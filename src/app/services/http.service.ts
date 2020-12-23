@@ -33,9 +33,5 @@ export class HttpService {
     }
     return this._http.put<any>(this.url+'/createVideo', httpOptions);
   }
-
-
-
-
   
 }
