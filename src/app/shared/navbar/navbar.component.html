@@ -1,0 +1,23 @@
+
+  <div class="navbar navbar-expand-lg navbar-dark bg-custom-dark">
+    <div class="navbar-brand">
+        <h5><img src="assets/leaf.svg" height="40">Minitube</h5>
+    </div>
+    <form class="form-inline mx-auto">
+        <div class="input-group">
+            <input [(ngModel)]="words" type="text" name="search"  class="form-control rounded-input" placeholder="Buscar.." aria-label="search" aria-describedby="search">
+            <div class="input-group-append">
+                <button (click)="getCoincidences()" class="btn btn-outline-light rounded-button" type="button">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <div class="mg-auto">
+        <ul class="navbar-nav">
+            <button 
+            class="btn btn-outline-success my-2 my-sm-0" 
+            (click)="goToUpload()"
+            > Upload
+            </button>
+        </ul>
+    </div>
+</div>
