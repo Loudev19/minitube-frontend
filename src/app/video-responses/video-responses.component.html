@@ -1,10 +1,23 @@
-<div class="container-fluid p-4">
+<div *ngIf="!coincidences || coincidences.length === 0" class="box text-center">
+    No se encontraron coincidencias
+</div>
+
+<div class="container-fluid p-4 box" *ngIf="coincidences || coincidences.length > 0">
+    <div class="" *ngIf="currentVideo" #onPlay>
+        <video controls>
+            <source [src]="currentVideo.video_url" type="video/mp4">
+        </video>
+        <div class="row p-2" *ngFor="let label of currentVideo.labels">
+            <span class="badge badge-pill badge-primary col-md-1 m-2">{{label}}</span>
+        </div>
+    </div>
+
     <div class="row" *ngFor="let video of coincidences">
 
-        <div class="col-md-3 card m-2 p-2">
-            <div class="labels">
+        <div class="col-md-3 card m-2 p-2 clickable" (click)="onPlay(video)">
+            <div class="labels" *ngIf="currentVideo !== video">
                 <div class="row p-2" *ngFor="let label of video.labels">
-                    <span class="badge badge-pill badge-primary col-md m-2">{{label}}</span>
+                    <span class="badge badge-pill badge-primary col-md-3 m-2">{{label}}</span>
                 </div>
                 <img class="preview" [src]="imgSrc || video.thumbnail_url" 
                 (mouseover)="onMouseOver(video)"
