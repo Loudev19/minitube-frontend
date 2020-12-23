@@ -1,0 +1,41 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+#myVideo {
+
+height: 100vh; 
+min-height: 100%; 
+
+width: 100vh; 
+min-width: 100%; 
+}
+   
+
+.serching-video{
+    position: relative;
+    h2{
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: large;
+        color: $primary-color;
+        font-style: $font-stack;
+        font-size: 40px;
+    }
+}
+.Section-animated{
+    position: relative;
+    .descripcion{
+        padding-top: 25%;
+    
+        h2{
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: large;
+            color: $primary-color;
+            font-style: $font-stack;
+            font-size: 40px;
+        }
+    }
+
+
+}
