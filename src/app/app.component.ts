@@ -7,13 +7,8 @@ import { VideoResponseService } from "./services/video-response.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'minitube';
 
-  words: string;
+  constructor() {}
 
-  constructor(private _videoResponseService: VideoResponseService) {}
 
-  getCoincidences() {
-    this._videoResponseService.searchCoincidences(this.words)
-  }
 }
