@@ -15,6 +15,8 @@ export class VideoResponsesComponent implements OnInit {
 
   imgSrc: string;
 
+  currentVideo: Video;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private _videoResponseService: VideoResponseService) {
@@ -49,6 +51,10 @@ export class VideoResponsesComponent implements OnInit {
 
   onMouseOut(video: Video) {
     this.imgSrc = video.thumbnail_url
+  }
+
+  onPlay(video: Video) {
+    this.currentVideo = video
   }
 
 }
