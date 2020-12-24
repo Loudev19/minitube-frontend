@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Video } from './interfaces';
 
@@ -12,26 +12,28 @@ import { VideoResponseService } from "src/app/services/video-response.service";
 export class VideoResponsesComponent implements OnInit {
 
   coincidences: Video[] = [];
-
+  words: string;
   imgSrc: string;
-
   currentVideo: Video;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _videoResponseService: VideoResponseService) {
-    const words = this.activatedRoute.snapshot.queryParamMap.get('words');
-
-    if (words === null) {
-      this.coincidences  = [];
-    } else {
-      let labels: string = JSON.parse(words);
-      this.getCoincidences(labels)
-    }
-    console.log(this.coincidences)
-  }
+    private _videoResponseService: VideoResponseService) {}
 
   ngOnInit(): void {
+    this.activatedRoute.queryParamMap.subscribe(
+      (params) => {
+        this.coincidences = [];
+        this.currentVideo = null;
+        this.words = params.get('words')
+        if (this.words === null) {
+          this.coincidences  = [];
+        } else {
+          let labels: string = JSON.parse(this.words);
+          this.getCoincidences(labels)
+        }
+      }
+    )
   }
 
   getCoincidences(words: string) {
