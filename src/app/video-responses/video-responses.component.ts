@@ -24,6 +24,7 @@ export class VideoResponsesComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(
       (params) => {
         this.coincidences = [];
+        this.currentVideo = null;
         this.words = params.get('words')
         if (this.words === null) {
           this.coincidences  = [];
