@@ -1,5 +1,5 @@
 <div *ngIf="!coincidences || coincidences.length === 0" class="box text-center">
-    No se encontraron coincidencias
+    {{message}}
 </div>
 
 <div class="container-fluid p-4 box" *ngIf="coincidences || coincidences.length > 0">

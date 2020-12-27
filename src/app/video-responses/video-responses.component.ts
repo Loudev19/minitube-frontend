@@ -16,11 +16,14 @@ export class VideoResponsesComponent implements OnInit {
   imgSrc: string;
   currentVideo: Video;
 
+  message: string = "Cargando...";
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private _videoResponseService: VideoResponseService) {}
 
   ngOnInit(): void {
+    this.message = "Cargando..."
     this.activatedRoute.queryParamMap.subscribe(
       (params) => {
         this.coincidences = [];
@@ -28,6 +31,7 @@ export class VideoResponsesComponent implements OnInit {
         this.words = params.get('words')
         if (this.words === null) {
           this.coincidences  = [];
+          this.message = "No se encontraron coincidencias";
         } else {
           let labels: string = JSON.parse(this.words);
           this.getCoincidences(labels)
@@ -43,7 +47,9 @@ export class VideoResponsesComponent implements OnInit {
           this.coincidences.push(element)
         });
       },
-      error => console.log(error)
+      error => {
+        this.message = "No se encontraron coincidencias"
+      }
     )
   }
 
