@@ -1,8 +1,8 @@
-<div class="container-fluid p-4 box">
-    <div *ngIf="state==false" >
+<div class="container-fluid p-4">
+    <div *ngIf="state" >
         <h2> STEP 1 : Select Video</h2>
         <div class="row">
-            <div class="col-6" style=" height: 100vh;">
+            <div class="col-md-6">
                 <div class="right-content">
                     <p>
                         Click on <b>Select Video</b> to charge your video
@@ -19,18 +19,18 @@
                 </div>
             
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <div class="left-content"></div>
-                <img src="./../../../assets/undraw_video_upload_3d4u.svg">
+                <img src="./../../../assets/undraw_video_upload_3d4u.svg" width="500">
             </div>
         
         </div>
     </div>
-    <div *ngIf="state==true">
+    <div *ngIf="!state">
         <h2> STEP 2 : Select Thumbnail</h2>
         <div class="row">
-            <div class="col-6" style=" height: 100vh;">
-                <div class="right-content">
+            <div class="col-md-6">
+                <div class="right-content h-100">
                     <p>
                         Click on <b>the parte of video</b> to capture your thumbnail
                     </p>
@@ -44,9 +44,9 @@
                 </div>
             
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <div class="left-content"></div>
-                <img src="./../../../assets/undraw_video_upload_3d4u.svg">
+                <img src="./../../../assets/undraw_video_upload_3d4u.svg" width="500">
             </div>
         
         </div>
