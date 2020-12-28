@@ -15,6 +15,7 @@ export class UploadvideoComponent implements OnInit {
   currentTime: number;
   state : Boolean = false;
   video_url: Video_preURL;
+  end : false;
   constructor( private _http_service : HttpService ) { }
 
   onSelectFile(event) {

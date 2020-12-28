@@ -1,5 +1,5 @@
 .right-content {
-    padding-top: 30%;
+    padding-top: 10%;
     margin-left: 0px;
     width: 100%;
     height: 100vh;
@@ -9,13 +9,15 @@
     video{
         height: 500px;
         width: 500px;
-        padding-top: 20px;
-    }
-    btn{
-        padding-bottom: 10px;
+        padding-top: 10px;
     }
     button{
-        margin-top: 50px;
+        background-color: cadetblue;
+        position: relative;
+    }
+    button:hover{
+        background-color: green;
+        position: relative;
     }
 }
 

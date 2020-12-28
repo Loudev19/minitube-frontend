@@ -2,16 +2,17 @@
     <div *ngIf="state==false" >
         <h2> STEP 1 : Select Video</h2>
         <div class="row">
-            <div class="col-6" style=" height: 100vh;">
+            <div class="col-6">
                 <div class="right-content">
                     <p>
                         Click on <b>Select Video</b> to charge your video
                     </p>
                     <video [src]="url" *ngIf="format==='video' && url" controls></video> <br/>
                     <input type='file' class="btn btn-secondary btn-md btn-block" (change)="onSelectFile($event)" />
-                    <button 
+                    <br>
+                    <button style="margin-top: 100px;"
                     *ngIf="format==='video'"
-                    class="btn btn-success my-2 my-sm-0" 
+                    class="btn btn-block btn-large btn-success my-2 my-sm-0" 
                     (click)="onUpload()"
                     > Accept
                     </button>
@@ -29,14 +30,15 @@
     <div *ngIf="state==true">
         <h2> STEP 2 : Select Thumbnail</h2>
         <div class="row">
-            <div class="col-6" style=" height: 100vh;">
+            <div class="col-6" >
                 <div class="right-content">
                     <p>
-                        Click on <b>the parte of video</b> to capture your thumbnail
+                        Search in the video, until the picture that you want as thumbnail, and then press <b>Select Thumbnail</b>
                     </p>
                     <video (timeupdate)="setCurrentTime($event)" [src]="url" controls></video> <br/>
+                    <br>
                     <button
-                    class="btn btn-success my-2 my-sm-0" 
+                    class="btn btn-block btn-large btn-success my-2 my-sm-0" 
                     (click)="selectThumbnail()"
                     > Select Thumbnail
                     </button>
