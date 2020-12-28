@@ -1,0 +1,31 @@
+.right-content {
+    padding-top: 30%;
+    margin-left: 0px;
+    width: 100%;
+    height: 100vh;
+    p{
+        font-size: large;
+    }
+    video{
+        height: 500px;
+        width: 500px;
+        padding-top: 20px;
+    }
+    btn{
+        padding-bottom: 10px;
+    }
+    button{
+        margin-top: 50px;
+    }
+}
+
+.left-content {
+    padding-top: 10%;
+    margin-left: 0px;
+    width: 100%;
+    height: auto;
+    img{
+        height: 250px;
+        width: 250px;
+    }
+}

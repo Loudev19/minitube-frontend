@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
-interface Video{
-  _video_id             : string;
-   timestamp            : number;
-}
+import { tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,29 +11,30 @@ export class HttpService {
 
   constructor(private readonly _http: HttpClient ) {}
 
-  public setThumbnail( video : Video ){
+  public setThumbnail( video_id : String, timestamp : number){
+    timestamp = Math.round(timestamp);
+    let postData = { "video_id" : video_id , "timestamp": timestamp };
+    console.log(postData);
     let httpOptions = { 
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
-    return this._http.post(this.url+"/generateThumbail",video,httpOptions).subscribe(
-      val => console.log(val),
-      error => console.log(error)
-    );
+    return this._http.post(this.url+"/generateThumbnail",postData,httpOptions);
+  }
+  public createVideo()
+  {
+    return this._http.get<any>(this.url+'/createVideo');
   }
 
-  public createVideo(){
+  public putVideo( video_url , file){
     let httpOptions = { 
       headers: new HttpHeaders({
         'Content-Type': 'video/mp4',
         'X-Amz-ACL' : 'public-read'
       })
     }
-    return this._http.put<any>(this.url+'/createVideo', httpOptions).subscribe(
-      val => console.log(val),
-      error => console.log(error)
-    );
-  }
+    return this._http.put<any>( video_url, file , httpOptions );
+  } 
   
 }
