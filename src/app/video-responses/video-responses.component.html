@@ -3,7 +3,7 @@
 </div>
 
 <div class="container-fluid p-4 box" *ngIf="coincidences || coincidences.length > 0">
-    <div class="" *ngIf="currentVideo" #onPlay>
+    <div  *ngIf="currentVideo" #onPlay>
         <video controls>
             <source [src]="currentVideo.video_url" type="video/mp4">
         </video>
@@ -12,18 +12,19 @@
         </div>
     </div>
 
-    <div class="row" *ngFor="let video of coincidences">
-
-        <div class="col-md-3 card m-2 p-2 clickable" (click)="onPlay(video)">
-            <div class="labels" *ngIf="currentVideo !== video">
-                <div class="row p-2" *ngFor="let label of video.labels">
-                    <span class="badge badge-pill badge-primary col-md-3 m-2">{{label}}</span>
+    <div class="row">
+        <div class="col-md-4 m-2" *ngFor="let video of coincidences; let i = index">
+            <div *ngIf="currentVideo !== video" class="card p-2 clickable" (click)="onPlay(video)">
+                <div class="labels">
+                    <div class="row p-2" *ngFor="let label of video.labels">
+                        <span class="badge badge-pill badge-primary col-md-3 m-2">{{label}}</span>
+                    </div>
+                    <img class="preview" [src]="getImgSrc(video, i) || video.thumbnail_url" 
+                    (mouseover)="onMouseOver(video, i)"
+                    (mouseout)="onMouseOut(video, i)">
                 </div>
-                <img class="preview" [src]="imgSrc || video.thumbnail_url" 
-                (mouseover)="onMouseOver(video)"
-                (mouseout)="onMouseOut(video)">
             </div>
+            
         </div>
-        
     </div>
 </div>
