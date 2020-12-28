@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './../../services/http.service';
+import { Video_preURL } from './../../models/video_url'
 
-interface Video_preURL{
-  video_id: string,
-  presigned_url : string
-}
 
 @Component({
   selector: 'app-uploadvideo',
