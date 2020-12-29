@@ -4,9 +4,6 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="right-content">
-                    <p>
-                        Select a video file.
-                    </p>
                     <video [src]="url" *ngIf="format==='video' && url" controls></video> <br />
                     <input type='file' class="btn btn-secondary btn-md btn-block" (change)="onSelectFile($event)" />
                     <br>
