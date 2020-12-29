@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './../../services/http.service';
-import { Video_preURL } from './../../models/video_url'
+import { Video_preURL, Label } from './../../models/video_url'
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class UploadvideoComponent implements OnInit {
   state : Boolean = false;
   video_url: Video_preURL;
   end : Boolean =  false;
+  labels : String [] = []
   constructor( private _http_service : HttpService ) { }
 
   onSelectFile(event) {
@@ -43,26 +45,28 @@ export class UploadvideoComponent implements OnInit {
   }
 
   onUpload(){
-    this.state= true;
     this._http_service.putVideo( this.video_url.presigned_url, this._file).subscribe(data => {
       console.log(data);
+      this.state= true;
     });
   }
-  selectThumbnail(){
 
+  selectThumbnail(){
     if(this.currentTime === undefined)
     {
       alert('Dont forget move the cursor of the video to select a thumbnail');
     }
     else
     {
-      this._http_service.setThumbnail(this.video_url.video_id, this.currentTime).subscribe(data => {
-        console.log(data);
-      });
-      this.end = true;
-      
+      this._http_service.setThumbnail(this.video_url.video_id, this.currentTime).subscribe( ( labels : String[]) => 
+      {
+        this.labels = labels;
+        console.log(labels);
+        this.end = true;
+      }
+      );
+    
     }
-
 
   }
   ngOnInit(): void {

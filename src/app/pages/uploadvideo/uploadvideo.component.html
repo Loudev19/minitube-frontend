@@ -30,10 +30,8 @@
     <div *ngIf="state">
         <h2> STEP 2 : Select Thumbnail</h2>
         <div class="row">
-            <div class="col-6" >
-                <div class="right-content">
             <div class="col-md-6">
-                <div class="right-content h-100">
+                <div class="right-content">
                     <p>
                         Search in the video, until the picture that you want as thumbnail, and then press <b>Select Thumbnail</b>
                     </p>
@@ -52,13 +50,18 @@
                 <div class="left-content"></div>
                 <img src="./../../../assets/undraw_video_upload_3d4u.svg" width="500">
             </div>
-        
         </div>
     </div>
 </div>
 <div class="container-fluid p-4 box" *ngIf="end==true">
+    <h2> STEP 3 : You obtained the labels for your video </h2>
+    <h3> <b> You got the next labels:</b></h3>
+    <div class="row p-2">
+        <span *ngFor="let label of labels.labels" class="badge badge-pill badge-success col-md-2 m-2" style="font-size: 15px;">{{label}}</span>
+    </div>
+    
     <div class="alert alert-primary" role="alert">
-        Your video already has generated, click on the upload button if you want upload more videos, o write in 'buscar' for search labels  of videos 
+        Your video already and labels has generated, click on the upload button if you want upload more videos, o write in search box to seek labels  of videos 
     </div>
 </div>
 
