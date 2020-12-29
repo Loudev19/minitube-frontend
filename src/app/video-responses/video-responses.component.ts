@@ -13,7 +13,7 @@ export class VideoResponsesComponent implements OnInit {
 
   coincidences: Video[] = [];
   words: string;
-  imgSrc: string;
+  imgSrc: boolean[] = [];
   currentVideo: Video;
 
   message: string = "Cargando...";
@@ -45,6 +45,7 @@ export class VideoResponsesComponent implements OnInit {
       (val: any) => {
         val.videos.forEach(element => {
           this.coincidences.push(element)
+          this.imgSrc.push(false)
         });
       },
       error => {
@@ -53,12 +54,17 @@ export class VideoResponsesComponent implements OnInit {
     )
   }
 
-  onMouseOver(video: Video) {
-    this.imgSrc = video.preview_url
+  getImgSrc(video: Video, i: number) {
+    if (this.imgSrc[i]) return video.preview_url
+    return video.thumbnail_url
   }
 
-  onMouseOut(video: Video) {
-    this.imgSrc = video.thumbnail_url
+  onMouseOver(video: Video, i: number) {
+    this.imgSrc[i] = true
+  }
+
+  onMouseOut(video: Video, i: number) {
+    this.imgSrc[i] = false
   }
 
   onPlay(video: Video) {
