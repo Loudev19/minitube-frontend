@@ -1,10 +1,12 @@
 footer {
+    margin: 0 auto;
+    position: absolute;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
     padding: 30px;
-    position: fixed;
+    position: relative;
 }
 
 .rounded-input {
