@@ -16,7 +16,7 @@ export class VideoResponsesComponent implements OnInit {
   imgSrc: boolean[] = [];
   currentVideo: Video;
 
-  message: string = "Cargando...";
+  message: string = "Cargando..";
 
   constructor(
     private activatedRoute: ActivatedRoute,
