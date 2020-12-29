@@ -2,7 +2,7 @@
     {{message}}
 </div>
 
-<div class="container-fluid p-4 box" *ngIf="coincidences || coincidences.length > 0">
+<div class="container-fluid box" *ngIf="coincidences || coincidences.length > 0">
     <div  *ngIf="currentVideo" #onPlay>
         <video controls>
             <source [src]="currentVideo.video_url" type="video/mp4">

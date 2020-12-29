@@ -23,7 +23,6 @@ export class VideoResponsesComponent implements OnInit {
     private _videoResponseService: VideoResponseService) {}
 
   ngOnInit(): void {
-    this.message = "Cargando..."
     this.activatedRoute.queryParamMap.subscribe(
       (params) => {
         this.coincidences = [];
