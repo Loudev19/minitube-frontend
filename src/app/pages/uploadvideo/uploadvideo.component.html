@@ -1,20 +1,17 @@
 <div class="container-fluid p-4" *ngIf="end==false">
-    <div *ngIf="!state" >
-        <h2> STEP 1 : Select Video</h2>
+    <div *ngIf="!state">
+        <h2> <b>Step 1:</b> Select a video</h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="right-content">
                     <p>
-                        Click on <b>Select Video</b> to charge your video
+                        Select a video file.
                     </p>
-                    <video [src]="url" *ngIf="format==='video' && url" controls></video> <br/>
+                    <video [src]="url" *ngIf="format==='video' && url" controls></video> <br />
                     <input type='file' class="btn btn-secondary btn-md btn-block" (change)="onSelectFile($event)" />
                     <br>
-                    <button style="margin-top: 100px;"
-                    *ngIf="format==='video'"
-                    class="btn btn-block btn-large btn-success my-2 my-sm-0" 
-                    (click)="onUpload()"
-                    > Accept
+                    <button style="margin-top: 100px;" *ngIf="format==='video'"
+                        class="btn btn-block btn-large btn-success my-2 my-sm-0" (click)="onUpload()"> Next
                     </button>
                 </div>
             </div>
@@ -22,27 +19,24 @@
                 <div class="left-content"></div>
                 <img src="./../../../assets/undraw_video_upload_3d4u.svg" width="500">
             </div>
-        
+
         </div>
     </div>
     <div *ngIf="state">
-        <h2> STEP 2 : Select Thumbnail</h2>
+        <h2> <b>Step 2:</b> Choose a thumbnail</h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="right-content">
                     <p>
-                        Search in the video, until the picture that you want as thumbnail, and then press <b>Select Thumbnail</b>
+                        Use the video player to select the perfect thumbnail for your video.
                     </p>
-                    <video (timeupdate)="setCurrentTime($event)" [src]="url" controls></video> <br/>
+                    <video (timeupdate)="setCurrentTime($event)" [src]="url" controls></video> <br />
                     <br>
-                    <button
-                    class="btn btn-block btn-large btn-success my-2 my-sm-0" 
-                    (click)="selectThumbnail()"
-                    > Select Thumbnail
+                    <button class="btn btn-block btn-large btn-success my-2 my-sm-0" (click)="selectThumbnail()"> Next
                     </button>
 
                 </div>
-            
+
             </div>
             <div class="col-md-6">
                 <div class="left-content"></div>
@@ -52,16 +46,15 @@
     </div>
 </div>
 <div class="container-fluid p-4 box" *ngIf="end==true">
-    <h2> STEP 3 : You obtained the labels for your video </h2>
-    <h3> <b> You got the next labels:</b></h3>
+    <h2> <b>Step 3:</b> That's all</h2>
+    <h3> <b>We found this labels:</b></h3>
     <div class="row p-2">
-        <span *ngFor="let label of labels.labels" class="badge badge-pill badge-success col-md-2 m-2" style="font-size: 15px;">{{label}}</span>
+        <span *ngFor="let label of labels.labels" class="badge badge-pill badge-success col-md-2 m-2"
+            style="font-size: 15px;">{{label}}</span>
     </div>
-    
+
     <div class="alert alert-primary" role="alert">
-        Your video already and labels has generated, click on the upload button if you want upload more videos, o write in search box to seek labels  of videos 
+        Your video, and its labels, are already stored on our cloud. Now you can upload more videos or search
+        other ones by their labels.
     </div>
 </div>
-
-
-
