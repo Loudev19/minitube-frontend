@@ -15,7 +15,7 @@ export class UploadvideoComponent implements OnInit {
   currentTime: number;
   state : Boolean = false;
   video_url: Video_preURL;
-  end : false;
+  end : Boolean =  false;
   constructor( private _http_service : HttpService ) { }
 
   onSelectFile(event) {
@@ -44,18 +44,25 @@ export class UploadvideoComponent implements OnInit {
 
   onUpload(){
     this.state= true;
-    console.log(this.video_url.presigned_url);
-    console.log(this.video_url.video_id);
-    console.log(this._file);
     this._http_service.putVideo( this.video_url.presigned_url, this._file).subscribe(data => {
       console.log(data);
     });
   }
   selectThumbnail(){
 
-    this._http_service.setThumbnail(this.video_url.video_id, this.currentTime).subscribe(data => {
-      console.log(data);
-    });
+    if(this.currentTime === undefined)
+    {
+      alert('Dont forget move the cursor of the video to select a thumbnail');
+    }
+    else
+    {
+      this._http_service.setThumbnail(this.video_url.video_id, this.currentTime).subscribe(data => {
+        console.log(data);
+      });
+      this.end = true;
+      
+    }
+
 
   }
   ngOnInit(): void {

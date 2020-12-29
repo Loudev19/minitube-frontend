@@ -1,4 +1,4 @@
-<div class="container-fluid p-4 box">
+<div class="container-fluid p-4 box" *ngIf="end==false">
     <div *ngIf="state==false" >
         <h2> STEP 1 : Select Video</h2>
         <div class="row">
@@ -54,7 +54,11 @@
         </div>
     </div>
 </div>
-
+<div class="container-fluid p-4 box" *ngIf="end==true">
+    <div class="alert alert-primary" role="alert">
+        Your video already has generated, click on the upload button if you want upload more videos, o write in 'buscar' for search labels  of videos 
+    </div>
+</div>
 
 
 
